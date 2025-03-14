@@ -6,7 +6,7 @@ import { OrbitControls, useTexture, Environment } from "@react-three/drei";
 import { motion } from "framer-motion";
 
 function Earth() {
-  const texture = useTexture("/assets/3d/texture_earth.jpg");
+  const texture = useTexture("/assets/3d/texture_earth-min.jpg");
 
   return (
     <mesh rotation={[0, 0, 0]}>

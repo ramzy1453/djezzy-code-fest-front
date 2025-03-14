@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
-// Animated food icons that float in the background
 function AnimatedIcons() {
   const icons = Array(20)
     .fill(null)
@@ -45,13 +44,10 @@ function AnimatedIcons() {
 export default function HeroSection() {
   return (
     <section className="relative h-screen w-full overflow-hidden pt-16">
-      {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-br from-green-400 via-green-500 to-green-700 dark:from-green-700 dark:via-green-800 dark:to-green-900" />
 
-      {/* Animated background elements */}
       <AnimatedIcons />
 
-      {/* Content container */}
       <div className="container relative z-10 mx-auto flex h-full flex-col items-center justify-center px-4 py-32 text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -110,7 +106,6 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
 
-        {/* Glass card with key stats */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
