@@ -129,7 +129,7 @@ export default function HeroSection() {
 
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-green-700/90 to-transparent dark:from-green-900/90"></div>
 
-      <div className="absolute bottom-8 left-1/2 text-white flex flex-col items-center animate-float">
+      <div className="absolute bottom-2 left-1/2 text-white flex flex-col items-center animate-float">
         <span className="text-sm font-medium mb-2">Scroll to explore</span>
         <svg
           width="24"

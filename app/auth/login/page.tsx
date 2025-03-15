@@ -51,9 +51,9 @@ export default function LoginPage() {
             <h1 className="text-xl sm:text-2xl font-medium mb-3.5">Welcome</h1>
             <div className="space-y-4 text-sm sm:text-base">
               <p>
-                {`You are one step away from accessing a powerful tool designed to
-                simplify your workflow. In just a few clicks, access all your
-                projects, tasks, and reminders, and keep everything up to date.`}
+                {`You are one step away from accessing a powerful tool designed to reduce food waste efficiently. In just a few clicks, connect with businesses, charities, and individuals to give surplus food a second life.
+A smart and sustainable solution – tailored to your needs.
+`}
               </p>
               <p>A personalized workspace - tailored to your needs.</p>
               <p>Log in and lets get started</p>
