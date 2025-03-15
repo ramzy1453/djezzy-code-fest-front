@@ -381,7 +381,7 @@ export default function RestaurantsPage() {
                 <DialogHeader>
                   <DialogTitle>Add New Restaurant</DialogTitle>
                   <DialogDescription>
-                    Enter your restaurant details to join the No Food Waste
+                    Enter your restaurant details to join Matarmihach
                     platform.
                   </DialogDescription>
                 </DialogHeader>

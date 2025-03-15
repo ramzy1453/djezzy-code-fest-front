@@ -13,23 +13,19 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { usePathname } from "next/navigation";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { useUser } from "@/hooks/useUser";
+import { useLogoutMutation } from "@/lib/services/user.service";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const inHomePage = usePathname() === "/";
 
-  // Mock user state (in a real app, this would come from authentication)
-  const [user] = useState({
-    name: "Yahia Sinouar",
-    email: "yahia-sinouar@hamas.ps",
-    avatar: "/placeholder.svg?height=40&width=40",
-    initials: "YS",
-  });
+  const user = useUser((state) => state.user);
+  const clearUser = useUser((state) => state.clearUser);
+  const router = useRouter();
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 10) {
@@ -43,11 +39,11 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Mock logout function
-  const handleLogout = () => {
-    console.log("Logging out...");
-    // In a real app, you would call your auth service logout method here
-    // For example: auth.signOut().then(() => router.push('/'));
+  const { mutateAsync: logout } = useLogoutMutation();
+  const handleLogout = async () => {
+    await logout();
+    clearUser();
+    router.push("/");
   };
 
   const navLinks = [
@@ -96,7 +92,7 @@ export default function Navbar() {
 
           {/* User Menu (Desktop) */}
           <div className="hidden md:flex items-center space-x-4">
-            {inHomePage ? (
+            {!user ? (
               <Link href={"/dashboard/regular"}>
                 <Button className="bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-600">
                   Get Involved
@@ -110,8 +106,12 @@ export default function Navbar() {
                     className="relative h-8 w-8 rounded-full"
                   >
                     <Avatar className="h-8 w-8">
-                      <AvatarImage src={user.avatar} alt={user.name} />
-                      <AvatarFallback>{user.initials}</AvatarFallback>
+                      <AvatarFallback>
+                        {user.name
+                          .split(" ")
+                          .map((s) => s.charAt(0).toLocaleUpperCase())
+                          .join("")}
+                      </AvatarFallback>
                     </Avatar>
                   </Button>
                 </DropdownMenuTrigger>
@@ -142,7 +142,7 @@ export default function Navbar() {
                   <DropdownMenuSeparator />
                   <DropdownMenuItem
                     className="text-red-600 dark:text-red-400 cursor-pointer"
-                    onClick={handleLogout}
+                    onClick={() => handleLogout()}
                   >
                     <LogOut className="mr-2 h-4 w-4" />
                     <span>Log out</span>
@@ -196,8 +196,10 @@ export default function Navbar() {
               <>
                 <div className="px-3 py-2 flex items-center space-x-3">
                   <Avatar className="h-8 w-8">
-                    <AvatarImage src={user.avatar} alt={user.name} />
-                    <AvatarFallback>{user.initials}</AvatarFallback>
+                    {user.name
+                      .split(" ")
+                      .map((s) => s.charAt(0).toLocaleUpperCase())
+                      .join("")}
                   </Avatar>
                   <div>
                     <p className="text-sm font-medium">{user.name}</p>

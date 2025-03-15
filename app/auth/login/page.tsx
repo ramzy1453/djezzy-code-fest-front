@@ -1,28 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import { useFormik } from "formik";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import * as Yup from "yup";
-import { Mail } from "lucide-react";
 import { useLoginMutation } from "@/lib/services/user.service";
-
-// Types
-interface ILogin {
-  email: string;
-  password: string;
-}
+import { ILogin } from "@/types/user";
 
 export default function LoginPage() {
   const router = useRouter();
   const { mutateAsync: login } = useLoginMutation();
 
-  // Direct login form
   const loginFormik = useFormik<ILogin>({
     initialValues: {
       email: "",
@@ -35,12 +26,11 @@ export default function LoginPage() {
     async onSubmit(values) {
       console.log(values);
       try {
-        // Simulate login API call
         await login(values);
 
         toast.success("Login successful");
         loginFormik.resetForm();
-        router.push("/");
+        router.push("/dashboard/regular");
       } catch {
         toast.error("Error during login");
       }
@@ -50,14 +40,12 @@ export default function LoginPage() {
   return (
     <div className="mx-auto max-w-4xl h-screen flex flex-col justify-center items-center px-4 sm:px-8 md:px-12 relative">
       <div className="space-y-7 w-full">
-        {/* Header */}
         <div className="flex justify-center items-center space-x-4 mb-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            Salam Hack
+            Matarmihach
           </h1>
         </div>
 
-        {/* Form Container */}
         <div className="border border-[#D9DCE2] rounded-md flex flex-col md:flex-row md:space-x-16 p-6 sm:p-10 md:p-16 w-full">
           <div className="flex-1 mb-6 md:mb-0">
             <h1 className="text-xl sm:text-2xl font-medium mb-3.5">Welcome</h1>
@@ -68,11 +56,10 @@ export default function LoginPage() {
                 projects, tasks, and reminders, and keep everything up to date.`}
               </p>
               <p>A personalized workspace - tailored to your needs.</p>
-              <p>Log in and let's get started</p>
+              <p>Log in and lets get started</p>
             </div>
           </div>
 
-          {/* Login Forms */}
           <div className="flex-1">
             <form className="space-y-4" onSubmit={loginFormik.handleSubmit}>
               <div className="space-y-2">
@@ -117,7 +104,7 @@ export default function LoginPage() {
 
               <Button
                 type="submit"
-                className="w-full bg-primary hover:bg-primary/90 text-white font-medium"
+                className="w-full font-medium"
                 disabled={loginFormik.isSubmitting}
               >
                 {loginFormik.isSubmitting ? "Logging in..." : "Log in"}
