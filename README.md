@@ -1,8 +1,20 @@
-# Matarmihach
+# 🚀 Zaytoun - Djezzy Code Fest Submission (Frontend)
 
-## Overview
+## 🏆 Team Name
 
-This is the frontend of our web application built using Next.js. It features a modern UI with **ShadCN**, handles state management and API requests efficiently with **React Query**, and implements **cookie-based authentication** for secure user sessions.
+**Zaytoun**
+
+## 📖 Project Description
+
+Algeria, like many other countries, faces a significant food waste crisis. Despite food insecurity affecting parts of the population, large quantities of edible food go to waste due to:
+
+- Inefficient food distribution between suppliers, restaurants, and consumers.
+- Lack of awareness about food conservation and sustainable consumption.
+- Surplus food in supermarkets and restaurants that is discarded instead of redistributed.
+
+Our web application built with NextJS gives solution to that.
+
+It features a modern UI with **ShadCN**, handles state management and API requests efficiently with **React Query**, and implements **cookie-based authentication** for secure user sessions.
 
 ## Tech Stack
 
