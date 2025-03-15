@@ -3,12 +3,31 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { Leaf, Menu, X } from "lucide-react";
+import { Leaf, Menu, X, LogOut, Settings, UserCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const inHomePage = usePathname() === "/";
+
+  // Mock user state (in a real app, this would come from authentication)
+  const [user] = useState({
+    name: "Yahia Sinouar",
+    email: "yahia-sinouar@hamas.ps",
+    avatar: "/placeholder.svg?height=40&width=40",
+    initials: "YS",
+  });
 
   // Handle scroll effect
   useEffect(() => {
@@ -24,13 +43,19 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Mock logout function
+  const handleLogout = () => {
+    console.log("Logging out...");
+    // In a real app, you would call your auth service logout method here
+    // For example: auth.signOut().then(() => router.push('/'));
+  };
+
   const navLinks = [
-    { name: "Home", href: "#" },
-    { name: "Collect", href: "#collect" },
-    { name: "Donate", href: "#donate" },
-    { name: "Compost", href: "#compost" },
-    { name: "Sell", href: "#sell" },
-    { name: "About", href: "#about" },
+    { name: "Home", href: "/" },
+    { name: "Regular", href: "/dashboard/regular" },
+    { name: "Organization", href: "/dashboard/organization" },
+    { name: "Restaurant", href: "/dashboard/restaurant" },
+    { name: "About", href: "/about" },
   ];
 
   return (
@@ -52,7 +77,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-2">
             <Leaf className="h-6 w-6 text-green-600 dark:text-green-400" />
             <span className="font-bold text-xl text-green-800 dark:text-green-300">
-              No Food Waste
+              Matarmihach
             </span>
           </Link>
 
@@ -69,11 +94,62 @@ export default function Navbar() {
             ))}
           </nav>
 
-          {/* CTA Button */}
+          {/* User Menu (Desktop) */}
           <div className="hidden md:flex items-center space-x-4">
-            <Button className="bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-600">
-              Get Involved
-            </Button>
+            {inHomePage ? (
+              <Link href={"/dashboard/regular"}>
+                <Button className="bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-600">
+                  Get Involved
+                </Button>
+              </Link>
+            ) : (
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    className="relative h-8 w-8 rounded-full"
+                  >
+                    <Avatar className="h-8 w-8">
+                      <AvatarImage src={user.avatar} alt={user.name} />
+                      <AvatarFallback>{user.initials}</AvatarFallback>
+                    </Avatar>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className="w-56" align="end" forceMount>
+                  <DropdownMenuLabel className="font-normal">
+                    <div className="flex flex-col space-y-1">
+                      <p className="text-sm font-medium leading-none">
+                        {user.name}
+                      </p>
+                      <p className="text-xs leading-none text-muted-foreground">
+                        {user.email}
+                      </p>
+                    </div>
+                  </DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem asChild>
+                    <Link href="/profile" className="cursor-pointer">
+                      <UserCircle className="mr-2 h-4 w-4" />
+                      <span>Profile</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem asChild>
+                    <Link href="/settings" className="cursor-pointer">
+                      <Settings className="mr-2 h-4 w-4" />
+                      <span>Settings</span>
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem
+                    className="text-red-600 dark:text-red-400 cursor-pointer"
+                    onClick={handleLogout}
+                  >
+                    <LogOut className="mr-2 h-4 w-4" />
+                    <span>Log out</span>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            )}
           </div>
 
           {/* Mobile menu button */}
@@ -115,11 +191,61 @@ export default function Navbar() {
                 {link.name}
               </Link>
             ))}
-            <div className="pt-2">
-              <Button className="w-full bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-600">
-                Get Involved
-              </Button>
-            </div>
+
+            {user ? (
+              <>
+                <div className="px-3 py-2 flex items-center space-x-3">
+                  <Avatar className="h-8 w-8">
+                    <AvatarImage src={user.avatar} alt={user.name} />
+                    <AvatarFallback>{user.initials}</AvatarFallback>
+                  </Avatar>
+                  <div>
+                    <p className="text-sm font-medium">{user.name}</p>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      {user.email}
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href="/profile"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 dark:text-gray-200 dark:hover:text-green-400 dark:hover:bg-gray-900"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <div className="flex items-center">
+                    <UserCircle className="mr-2 h-4 w-4" />
+                    Profile
+                  </div>
+                </Link>
+                <Link
+                  href="/settings"
+                  className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-green-600 hover:bg-green-50 dark:text-gray-200 dark:hover:text-green-400 dark:hover:bg-gray-900"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <div className="flex items-center">
+                    <Settings className="mr-2 h-4 w-4" />
+                    Settings
+                  </div>
+                </Link>
+                <button
+                  className="w-full text-left px-3 py-2 rounded-md text-base font-medium text-red-600 hover:text-red-700 hover:bg-red-50 dark:text-red-400 dark:hover:text-red-300 dark:hover:bg-red-900/20"
+                  onClick={() => {
+                    handleLogout();
+                    setIsMobileMenuOpen(false);
+                  }}
+                >
+                  <div className="flex items-center">
+                    <LogOut className="mr-2 h-4 w-4" />
+                    Log out
+                  </div>
+                </button>
+              </>
+            ) : (
+              <div className="pt-2">
+                <Button className="w-full bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-600">
+                  Get Involved
+                </Button>
+              </div>
+            )}
           </div>
         )}
       </motion.div>

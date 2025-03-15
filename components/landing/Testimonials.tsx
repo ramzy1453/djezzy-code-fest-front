@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 const testimonials = [
   {
     quote:
-      "Since joining the No Food Waste platform, our restaurant has reduced waste by 60% and connected with local communities in meaningful ways.",
+      "Since joining Matarmihach platform, our restaurant has reduced waste by 60% and connected with local communities in meaningful ways.",
     author: "Maria Rodriguez",
     role: "Restaurant Owner",
     avatar: "/",
