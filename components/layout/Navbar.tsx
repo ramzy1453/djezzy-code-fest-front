@@ -73,7 +73,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center space-x-2">
             <Leaf className="h-6 w-6 text-green-600 dark:text-green-400" />
             <span className="font-bold text-xl text-green-800 dark:text-green-300">
-              Matarmihach
+              ماتارميهاش
             </span>
           </Link>
 
@@ -95,7 +95,7 @@ export default function Navbar() {
             {!user ? (
               <Link href={"/dashboard/regular"}>
                 <Button className="bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-600">
-                  Get Involved
+                  شارك
                 </Button>
               </Link>
             ) : (
@@ -244,7 +244,7 @@ export default function Navbar() {
             ) : (
               <div className="pt-2">
                 <Button className="w-full bg-green-600 hover:bg-green-700 text-white dark:bg-green-700 dark:hover:bg-green-600">
-                  Get Involved
+                  شارك
                 </Button>
               </div>
             )}

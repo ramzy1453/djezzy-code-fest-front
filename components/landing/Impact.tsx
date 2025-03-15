@@ -53,15 +53,14 @@ export default function Impact() {
           <div className="flex flex-col justify-center space-y-4">
             <div className="space-y-2">
               <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm font-medium text-green-800 dark:bg-green-800/30 dark:text-green-300">
-                Our Impact
+                تأثيرنا{" "}
               </div>
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl">
-                Global Change Starts Locally
+                يبدأ التغيير العالمي محليًا
               </h2>
               <p className="max-w-[600px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-                Together, we are making a significant impact on reducing food
-                waste and helping communities thrive. Every action contributes
-                to a more sustainable world.
+                معًا ، نحدث تأثيرًا كبيرًا على الحد من هدر الطعام ومساعدة
+                المجتمعات على الازدهار. يساهم كل عمل في عالم أكثر استدامة.
               </p>
             </div>
 

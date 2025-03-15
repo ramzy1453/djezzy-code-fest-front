@@ -42,7 +42,7 @@ export default function LoginPage() {
       <div className="space-y-7 w-full">
         <div className="flex justify-center items-center space-x-4 mb-8">
           <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
-            Matarmihach
+            ماتارميهاش
           </h1>
         </div>
 

@@ -6,32 +6,32 @@ import { useInView } from "react-intersection-observer";
 
 const features = [
   {
-    title: "Collecting",
+    title: "جمع",
     description:
-      "Gather surplus food from restaurants, markets, and farms that would otherwise go to waste.",
+      "اجمع فائضًا من الطعام من المطاعم والأسواق والمزارع التي كانت ستهدر لولا ذلك.",
     icon: ShoppingBag,
     color:
       "bg-amber-100 text-amber-600 dark:bg-amber-900/30 dark:text-amber-300",
   },
   {
-    title: "Donating",
+    title: "التبرع",
     description:
-      "Contribute food, money, or your time to help distribute resources to those in need.",
+      "ساهم بالطعام أو المال أو وقتك للمساعدة في توزيع الموارد على المحتاجين.",
     icon: DollarSign,
     color: "bg-blue-100 text-blue-600 dark:bg-blue-900/30 dark:text-blue-300",
   },
   {
-    title: "Composting",
+    title: "سماد",
     description:
-      "Transform food scraps into nutrient-rich soil for sustainable gardening and farming.",
+      "تحويل قصاصات الطعام إلى تربة غنية بالمغذيات من أجل البستنة والزراعة المستدامة.",
     icon: Recycle,
     color:
       "bg-green-100 text-green-600 dark:bg-green-900/30 dark:text-green-300",
   },
   {
-    title: "Selling",
+    title: "بيع",
     description:
-      "Market surplus food at reduced prices to prevent waste and create economic opportunities.",
+      "فائض الغذاء في السوق بأسعار مخفضة لمنع الهدر وخلق فرص اقتصادية.",
     icon: Leaf,
     color:
       "bg-purple-100 text-purple-600 dark:bg-purple-900/30 dark:text-purple-300",
@@ -71,14 +71,14 @@ export default function HowItWorks() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm font-medium text-green-800 dark:bg-green-800/30 dark:text-green-300">
-              How It Works
+              كيف يعمل
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Four Ways to Make an Impact
+              أربع طرق لإحداث تأثير
             </h2>
             <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              Our platform offers multiple ways to participate in reducing food
-              waste. Choose the path that works best for you.
+              تقدم منصتنا طرقًا متعددة للمشاركة في الحد من هدر الطعام. اختر
+              المسار الذي يناسبك.
             </p>
           </div>
         </div>

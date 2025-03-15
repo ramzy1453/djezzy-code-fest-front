@@ -61,7 +61,7 @@ export default function HeroSection() {
             transition={{ delay: 0.3, duration: 0.5 }}
             className="mx-auto inline-block rounded-lg bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
           >
-            Join the Movement
+            انضم إلى الحركة
           </motion.div>
 
           <motion.h1
@@ -70,8 +70,9 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.5 }}
             className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Zero Food Waste <br />
-            <span className="text-green-200">Maximum Impact</span>
+            صفر نفايات الطعام
+            <br />
+            <span className="text-green-200">التأثير الأقصى</span>
           </motion.h1>
 
           <motion.p
@@ -80,8 +81,8 @@ export default function HeroSection() {
             transition={{ delay: 0.7, duration: 0.5 }}
             className="mx-auto max-w-[700px] text-lg text-white/80"
           >
-            Collect, donate, compost, or sell. Every action counts in our
-            mission to eliminate food waste and create a sustainable future.
+            اجمع أو تبرع أو سماد أو بيع. كل عمل مهم في مهمتنا للقضاء على فضلات
+            الطعام وخلق مستقبل مستدام.
           </motion.p>
 
           <motion.div
@@ -94,14 +95,14 @@ export default function HeroSection() {
               size="lg"
               className="bg-white text-green-700 hover:bg-white/90 dark:bg-white dark:text-green-800"
             >
-              Get Started
+              ابدأ
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white/10 dark:border-white dark:text-white"
             >
-              Learn More
+              أعرف أكثر{" "}
             </Button>
           </motion.div>
         </motion.div>
@@ -113,9 +114,9 @@ export default function HeroSection() {
           className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl backdrop-blur-md bg-white/20 dark:bg-black/20 rounded-xl p-6 border border-white/20"
         >
           {[
-            { value: "2M+", label: "Meals Saved" },
-            { value: "500+", label: "Volunteers" },
-            { value: "50+", label: "Communities" },
+            { value: "2M+", label: "وجبات محفوظة" },
+            { value: "500+", label: "المتطوعين" },
+            { value: "50+", label: "مجتمعات" },
           ].map((stat, index) => (
             <div key={index} className="text-center p-4">
               <h3 className="text-3xl md:text-4xl font-bold text-white">

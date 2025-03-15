@@ -22,14 +22,14 @@ export default function GetInvolved() {
         <div className="flex flex-col items-center justify-center space-y-4 text-center">
           <div className="space-y-2">
             <div className="inline-block rounded-lg bg-green-100 px-3 py-1 text-sm font-medium text-green-800 dark:bg-green-800/30 dark:text-green-300">
-              Get Involved
+              شارك
             </div>
             <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-              Join Our Mission
+              انضم إلى مهمتنا
             </h2>
             <p className="max-w-[900px] text-gray-500 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-400">
-              There are many ways to contribute to our cause. Choose the option
-              that resonates with you.
+              هناك العديد من الطرق للمساهمة في قضيتنا. حدد الخيار الذي يتردد
+              صداه معك.
             </p>
           </div>
         </div>
@@ -42,10 +42,10 @@ export default function GetInvolved() {
             className="w-full"
           >
             <TabsList className="grid w-full grid-cols-4">
-              <TabsTrigger value="donate">Money</TabsTrigger>
-              <TabsTrigger value="food">Food</TabsTrigger>
-              <TabsTrigger value="items">Items</TabsTrigger>
-              <TabsTrigger value="volunteer">Volunteer</TabsTrigger>
+              <TabsTrigger value="donate">مال</TabsTrigger>
+              <TabsTrigger value="food">طعام</TabsTrigger>
+              <TabsTrigger value="items">عناصر</TabsTrigger>
+              <TabsTrigger value="volunteer">تطوع</TabsTrigger>
             </TabsList>
 
             <motion.div
@@ -60,16 +60,16 @@ export default function GetInvolved() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Coins className="h-5 w-5 text-green-600" />
-                      Donate Money
+                      تبرع بالمال
                     </CardTitle>
                     <CardDescription>
-                      Your financial contribution helps us expand our operations
-                      and reach more communities.
+                      تساعدنا مساهمتك المالية على توسيع عملياتنا والوصول إلى
+                      المزيد من المجتمعات.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
                     <div className="grid gap-4 md:grid-cols-3">
-                      {["$10", "$25", "$50"].map((amount) => (
+                      {["500دج", "1000دج", "2000دج"].map((amount) => (
                         <Button
                           key={amount}
                           variant="outline"
@@ -93,23 +93,23 @@ export default function GetInvolved() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Apple className="h-5 w-5 text-green-600" />
-                      Donate Food
+                      تبرع بالطعام
                     </CardTitle>
                     <CardDescription>
-                      Share your surplus food with those who need it most. Every
-                      meal counts.
+                      شارك فائض طعامك مع أولئك الذين هم في أمس الحاجة إليه. كل
+                      وجبة مهمة.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-4">We accept:</p>
+                    <p className="mb-4">نحن نقبل:</p>
                     <ul className="list-disc pl-5 space-y-2 mb-4">
-                      <li>Non-perishable food items</li>
-                      <li>Fresh produce from gardens or farms</li>
-                      <li>Surplus food from restaurants and cafes</li>
-                      <li>Bulk food items from manufacturers</li>
+                      <li>المواد الغذائية غير القابلة للتلف</li>
+                      <li>منتجات طازجة من حدائق أو مزارع</li>
+                      <li>فائض الطعام من المطاعم والمقاهي</li>
+                      <li>المواد الغذائية السائبة من الشركات المصنعة</li>
                     </ul>
                     <Button className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600">
-                      Find Drop-off Locations
+                      ابحث عن مواقع النزول{" "}
                     </Button>
                   </CardContent>
                 </Card>
@@ -120,23 +120,23 @@ export default function GetInvolved() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Heart className="h-5 w-5 text-green-600" />
-                      Donate Items
+                      تبرع بالعناصر
                     </CardTitle>
                     <CardDescription>
-                      Contribute equipment, supplies, or other resources to
-                      support our operations.
+                      ساهم بالمعدات أو الإمدادات أو الموارد الأخرى لدعم
+                      عملياتنا.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-4">Items we need:</p>
+                    <p className="mb-4">العناصر التي نحتاجها:</p>
                     <ul className="list-disc pl-5 space-y-2 mb-4">
-                      <li>Food storage containers</li>
-                      <li>Transportation equipment</li>
-                      <li>Gardening tools for composting projects</li>
-                      <li>Office supplies for administrative work</li>
+                      <li>حاويات تخزين الطعام</li>
+                      <li>معدات النقل</li>
+                      <li>أدوات البستنة لمشاريع التسميد</li>
+                      <li>اللوازم المكتبية للعمل الإداري</li>
                     </ul>
                     <Button className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600">
-                      Contact Us to Donate
+                      اتصل بنا للتبرع{" "}
                     </Button>
                   </CardContent>
                 </Card>
@@ -147,23 +147,23 @@ export default function GetInvolved() {
                   <CardHeader>
                     <CardTitle className="flex items-center gap-2">
                       <Clock className="h-5 w-5 text-green-600" />
-                      Volunteer Time
+                      وقت التطوع
                     </CardTitle>
                     <CardDescription>
-                      Share your skills and time to help us make a bigger impact
-                      in our community.
+                      شارك مهاراتك ووقتك لمساعدتنا على إحداث تأثير أكبر في
+                      مجتمعنا.
                     </CardDescription>
                   </CardHeader>
                   <CardContent>
-                    <p className="mb-4">Volunteer opportunities:</p>
+                    <p className="mb-4">فرص التطوع:</p>
                     <ul className="list-disc pl-5 space-y-2 mb-4">
-                      <li>Food collection and distribution</li>
-                      <li>Composting and garden maintenance</li>
-                      <li>Community outreach and education</li>
-                      <li>Administrative and technical support</li>
+                      <li>جمع وتوزيع الغذاء</li>
+                      <li>التسميد وصيانة الحدائق</li>
+                      <li>التواصل المجتمعي والتعليم</li>
+                      <li>الدعم الإداري والفني</li>
                     </ul>
                     <Button className="w-full bg-green-600 hover:bg-green-700 dark:bg-green-700 dark:hover:bg-green-600">
-                      Sign Up to Volunteer
+                      قم بالتسجيل في التطوع{" "}
                     </Button>
                   </CardContent>
                 </Card>

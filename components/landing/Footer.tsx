@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
               <Leaf className="h-6 w-6 text-green-600" />
-              <span className="text-lg font-bold">Matarmihach</span>
+              <span className="text-lg font-bold">ماتارميهاش</span>
             </Link>
             <p className="text-sm text-gray-500 dark:text-gray-400">
               Working together to eliminate food waste and create a more
@@ -33,7 +33,7 @@ export default function Footer() {
                   href="#"
                   className="text-sm text-gray-500 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400"
                 >
-                  How It Works
+                  كيف يعمل
                 </Link>
               </li>
               <li>
@@ -41,7 +41,7 @@ export default function Footer() {
                   href="#"
                   className="text-sm text-gray-500 hover:text-green-600 dark:text-gray-400 dark:hover:text-green-400"
                 >
-                  Get Involved
+                  شارك
                 </Link>
               </li>
               <li>
@@ -175,7 +175,7 @@ export default function Footer() {
 
         <div className="mt-8 border-t pt-6 flex flex-col sm:flex-row justify-between items-center">
           <p className="text-xs text-gray-500 dark:text-gray-400">
-            &copy; {new Date().getFullYear()} Matarmihach. All rights reserved.
+            &copy; {new Date().getFullYear()} ماتارميهاش. All rights reserved.
           </p>
           <div className="flex space-x-4 mt-4 sm:mt-0">
             <Link
