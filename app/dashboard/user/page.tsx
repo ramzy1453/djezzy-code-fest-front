@@ -16,7 +16,7 @@ import OrganizationsList from "@/components/dashboard/user/OrganizationsList";
 import FoodEntryForm from "@/components/dashboard/user/FoodEntryForm";
 import FoodCalendar from "@/components/dashboard/user/FoodCalendar";
 
-export default function DashboardPage() {
+export default function UserPage() {
   const [activeTab, setActiveTab] = useState("overview");
 
   return (
