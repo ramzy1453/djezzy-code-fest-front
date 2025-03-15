@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Calendar } from "@/components/ui/calendar";
 import { Card, CardContent } from "@/components/ui/card";
 import { format, isSameDay, addDays, differenceInDays } from "date-fns";
 
@@ -104,43 +103,10 @@ export default function FoodCalendar() {
   const selectedDateItems = getExpiringItems(selectedDate);
 
   // Create a modifiers object for React Day Picker
-  const modifiers = {
-    expiringFood: foodItems.map((item) => new Date(item.expiryDate)),
-  };
-
-  // Create modifier styles
-  const modifiersStyles = {
-    expiringFood: {
-      backgroundColor: "rgba(239, 68, 68, 0.1)",
-      borderRadius: "0.375rem",
-      color: "rgb(185, 28, 28)",
-    },
-  };
-
-  // Create a custom footer for the calendar
-  const footer = (
-    <div className="mt-3 text-center text-xs">
-      <span className="inline-block w-3 h-3 rounded-full bg-red-100 mr-1"></span>
-      <span className="text-gray-500">= Items expiring</span>
-    </div>
-  );
-
   return (
     <div className="space-y-6">
       <div className="flex flex-col md:flex-row gap-6">
         <div className="md:w-1/2">
-          <div className="rounded-md border">
-            <Calendar
-              mode="single"
-              selected={selectedDate}
-              onSelect={setSelectedDate}
-              modifiers={modifiers}
-              modifiersStyles={modifiersStyles}
-              footer={footer}
-              className="rounded-md"
-            />
-          </div>
-
           {/* Simple date strip for next 14 days */}
           <div className="mt-4 grid grid-cols-7 gap-1 text-center text-xs">
             {Array.from({ length: 14 }, (_, i) => {
